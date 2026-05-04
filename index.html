@@ -295,7 +295,7 @@ body::before{content:'';position:fixed;inset:0;
 <div id="screen-name" class="screen">
   <div style="width:100%;max-width:360px;text-align:center">
     <span class="big-emoji">👋</span>
-    <h2 style="font-size:23px;font-weight:800;margin-bottom:7px">C'est qui toi ?</h2>
+    <h2 style="font-size:23px;font-weight:800;margin-bottom:7px">Comment tu t'appelles ?</h2>
     <p style="color:rgba(255,255,255,.45);margin-bottom:22px;font-size:13px;line-height:1.65">Entre ton prénom pour enregistrer ton score.<br><span style="font-size:12px">Une seule tentative.</span></p>
     <input class="input-field" type="text" id="inp-name" placeholder="Ton prénom..." maxlength="26" onkeydown="if(event.key==='Enter')goToCode()"/>
     <button class="btn btn-lime" onclick="goToCode()" style="width:100%;margin-bottom:10px;padding:14px">Suivant →</button>
@@ -308,7 +308,7 @@ body::before{content:'';position:fixed;inset:0;
   <div style="width:100%;max-width:380px;text-align:center">
     <span class="big-emoji">🔑</span>
     <h2 style="font-size:23px;font-weight:800;margin-bottom:7px">Entre ton code</h2>
-    <div class="code-info">Chaque participant reçoit un code unique à usage unique.<br>Demande le tien à ton manager si tu ne l'as pas encore.<br><span style="color:rgba(255,255,255,.3);font-size:12px">Valable à vie — utilisable une seule fois.</span></div>
+    <div class="code-info">Chaque participant reçoit un code unique à usage unique.<br>Demande le tien à Yassir Sabounji si tu ne l'as pas encore.<br><span style="color:rgba(255,255,255,.3);font-size:12px">Valable à vie — utilisable une seule fois.</span></div>
     <div class="code-box">
       <div class="code-err" id="code-err"></div>
       <input class="input-field code-input" type="text" id="inp-code" placeholder="WPP-XXXXX" maxlength="9" oninput="formatCodeInput(this)" onkeydown="if(event.key==='Enter')submitCode()"/>
