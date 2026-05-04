@@ -237,6 +237,32 @@ body::before{content:'';position:fixed;inset:0;
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:100}
 
 @media(max-width:520px){.opts-grid{grid-template-columns:1fr}.q-card{padding:18px 15px}.rev-grid{grid-template-columns:1fr}.type-grid{grid-template-columns:1fr 1fr}}
+
+/* ─── LARGE SCREENS — scale up so it doesn't look tiny on Full HD/4K ─── */
+@media(min-width:1280px){
+  .big-title{font-size:clamp(40px,5vw,76px);line-height:1.08}
+  .wpp-logo{height:72px;margin-bottom:30px}
+  .pill{font-size:12px;padding:9px 22px;margin-bottom:24px}
+  .intro-wrap{max-width:880px}
+  #screen-intro p{font-size:17px;max-width:660px}
+  .rules-row{gap:14px;margin-bottom:32px}
+  .rule-chip{padding:18px 24px}
+  .rule-val{font-size:24px}
+  .rule-lbl{font-size:12px}
+  .btn{padding:16px 32px;font-size:15px}
+  .quiz-header,.prog-wrap,.q-card,.opts-grid,.expl{max-width:840px!important}
+  .q-text{font-size:clamp(17px,1.6vw,22px)}
+  .opt{font-size:15px;padding:18px 18px}
+  .rev-wrap,.lb-wrap,.admin-wrap{max-width:980px}
+  .rev-header h2,.lb-header h2{font-size:30px}
+  .score-ring{width:172px;height:172px}
+  .score-big{font-size:56px}
+}
+@media(min-width:1680px){
+  .big-title{font-size:clamp(48px,5.2vw,86px)}
+  .intro-wrap{max-width:980px}
+  #screen-intro p{font-size:18px;max-width:720px}
+}
 </style>
 </head>
 <body>
@@ -255,12 +281,12 @@ body::before{content:'';position:fixed;inset:0;
 
 <!-- INTRO -->
 <div id="screen-intro" class="screen active">
-  <div style="width:100%;max-width:600px;text-align:center">
+  <div class="intro-wrap" style="width:100%;max-width:760px;text-align:center">
     <img id="wpp-logo-img" class="wpp-logo" src="" alt="WPP Media"/>
     <div class="wpp-brand">WPP Media · Paid Social</div>
     <div class="pill">Quiz d'Intégration · Semaine 1</div>
-    <h1 class="big-title">T'es prêt à prouver que t'as<br><span class="hl-lime">bossé</span> cette <span class="hl-cyan">semaine ?</span></h1>
-    <p style="font-size:14.5px;line-height:1.75;color:rgba(255,255,255,.58);max-width:470px;margin:0 auto 26px;font-weight:400">10 questions tirées de ta semaine d'intégration. 30s par question, max 5 minutes.<br><strong style="color:rgba(255,255,255,.8)">Tu auras besoin d'un code pour commencer</strong> — demande-le à Yassir Sabounji dès que tu es prêt(e).</p>
+    <h1 class="big-title">T'es prêt à<br>prouver que t'as<br><span class="hl-lime">bossé</span> cette <span class="hl-cyan">semaine ?</span></h1>
+    <p style="font-size:14.5px;line-height:1.75;color:rgba(255,255,255,.58);max-width:560px;margin:0 auto 26px;font-weight:400">10 questions tirées de ta semaine d'intégration.<br>30s par question, 5 minutes max.<br><strong style="color:rgba(255,255,255,.8)">Tu auras besoin d'un code pour commencer,</strong><br>demande-le à Yassir Sabounji dès que tu es prêt(e).</p>
     <div class="rules-row">
       <div class="rule-chip"><div class="rule-val">10</div><div class="rule-lbl">Questions</div></div>
       <div class="rule-chip"><div class="rule-val">30s</div><div class="rule-lbl">Par question</div></div>
@@ -281,7 +307,7 @@ body::before{content:'';position:fixed;inset:0;
     <div class="rev-header">
       <div class="eyebrow">Avant de commencer</div>
       <h2>Guide de révision</h2>
-      <p>Pas de réponses ici — juste des pistes. Explore, pose des questions à l'équipe, observe autour de toi. Quand tu es prêt(e), demande ton code à ton manager !</p>
+      <p>Pas de réponses ici — juste des pistes. Explore, pose des questions à l'équipe, observe autour de toi. Quand tu es prêt(e), demande ton code à Yassir Sabounji !</p>
     </div>
     <div class="rev-grid" id="rev-grid"></div>
     <div style="text-align:center">
@@ -613,7 +639,7 @@ function ensureCurrentCode(){
 function validateCode(raw){
   const code=raw.trim().toUpperCase().replace(/\s/g,'');
   const codes=getCodes(),entry=codes.find(c=>c.code===code);
-  if(!entry)return{ok:false,msg:"Code invalide. Vérifie auprès de ton manager."};
+  if(!entry)return{ok:false,msg:"Code invalide. Vérifie auprès de Yassir Sabounji."};
   if(entry.used)return{ok:false,msg:`Ce code a déjà été utilisé par ${entry.usedBy||'quelqu\'un'}. Demande un nouveau code.`};
   return{ok:true,entry,code};
 }
